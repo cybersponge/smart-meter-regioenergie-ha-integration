@@ -25,6 +25,7 @@ from custom_components.regioenergie_import.const import (
     CONF_VALID_FROM,
     DEFAULT_OBIS_CODE,
     DEFAULT_UNIT_BY_METER_TYPE,
+    entry_title,
 )
 from homeassistant.components.recorder.statistics import valid_statistic_id
 
@@ -35,6 +36,13 @@ VALID_METER = {
     CONF_OBIS_CODE: DEFAULT_OBIS_CODE,
     CONF_UNIT: "m³",
 }
+
+
+def test_entry_title_identifies_the_integration_and_account() -> None:
+    """A reauthentication issue names its integration and account."""
+    assert entry_title("person@example.com") == (
+        "Regio Energie Smart Meter Import: person@example.com"
+    )
 
 
 @pytest.mark.parametrize(

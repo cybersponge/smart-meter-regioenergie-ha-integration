@@ -80,6 +80,7 @@ from .const import (
     MIN_SCAN_INTERVAL_MINUTES,
     PORTAL_TIMEZONE,
     UNITS_BY_METER_TYPE,
+    entry_title,
 )
 from .coordinator import (
     cost_statistic_id_for,
@@ -449,7 +450,7 @@ class RegioEnergieConfigFlow(ConfigFlow, domain=DOMAIN):
                 )
             if not errors:
                 return self.async_create_entry(
-                    title=self._credentials[CONF_USERNAME],
+                    title=entry_title(self._credentials[CONF_USERNAME]),
                     data=self._credentials,
                     options={
                         **self._login_options,

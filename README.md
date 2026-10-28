@@ -1,5 +1,7 @@
 # Regio Energie Smart Meter Import
 
+![Regio Energie Smart Meter Import icon](custom_components/regioenergie_import/brand/icon.png)
+
 [![hacs][hacs-badge]][hacs-url]
 
 Home Assistant integration that imports smart meter load profiles from the
@@ -60,9 +62,18 @@ dashboard reads. The only entities are the price sensors of priced meters
 Home Assistant 2025.2 or newer, and an account for the web portal of your
 utility.
 
+The integration icon is displayed by Home Assistant 2026.3 or newer. Older
+versions can still run the integration but do not load locally bundled icons.
+
 ## Installation
 
-### HACS
+### Marketplace / HACS
+
+Open the original repository in the Home Assistant Marketplace:
+
+[![Open this repository in the Home Assistant Marketplace](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=cybersponge&repository=smart-meter-regioenergie-ha-integration&category=integration)
+
+Alternatively, add it manually:
 
 1. HACS → Integrations → ⋮ → **Custom repositories**
 2. Add `https://github.com/cybersponge/smart-meter-regioenergie-ha-integration`

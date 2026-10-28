@@ -41,6 +41,7 @@ from .const import (
     DOMAIN,
     PORTAL_TIMEZONE,
     SUMMER_MONTHS,
+    entry_title,
 )
 from .coordinator import (
     RegioEnergieCoordinator,
@@ -130,6 +131,13 @@ async def async_setup_entry(
     hass: HomeAssistant, entry: RegioEnergieConfigEntry
 ) -> bool:
     """Set up a portal account from a config entry."""
+    # Older entries were named only after the username, which makes the
+    # authentication repair impossible to attribute to this integration.
+    if entry.title == entry.data[CONF_USERNAME]:
+        hass.config_entries.async_update_entry(
+            entry, title=entry_title(entry.data[CONF_USERNAME])
+        )
+
     coordinator = RegioEnergieCoordinator(hass, entry, build_client(hass, entry))
     entry.runtime_data = coordinator
 

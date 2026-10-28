@@ -6,6 +6,13 @@ from datetime import timedelta
 from typing import Final
 
 DOMAIN: Final = "regioenergie_import"
+INTEGRATION_NAME: Final = "Regio Energie Smart Meter Import"
+
+
+def entry_title(username: str) -> str:
+    """Identify the integration when Home Assistant displays an account issue."""
+    return f"{INTEGRATION_NAME}: {username}"
+
 
 # --- Config entry data keys -------------------------------------------------
 CONF_BASE_URL: Final = "base_url"
